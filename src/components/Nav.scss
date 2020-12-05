@@ -1,0 +1,126 @@
+.nav {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: #07252d;
+    transition: 1s;
+    .intro {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        h1 {
+            color: #fff;
+            font-size: 6vw;
+            font-weight: 700;
+            text-shadow: 0 0 10px #03bcf4,
+                             0 0 20px #03bcf4,
+                             0 0 40px #03bcf4,
+                             0 0 80px #03bcf4,
+                             0 0 160px #03bcf4;
+        }
+        .click {
+            width: 40vw;
+            text-align: center;
+            font-size: 6vw;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+            animation: animate 5s linear infinite;
+        }
+    }
+    &.opened {
+        width: 70px;
+        background: #e51e2a;
+        .navigation {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            .menubar {
+                position: relative;
+                width: 70px;
+                height: 100%;
+                padding: 10px;
+                display: flex;
+                .menuArea {
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 50px;
+                    height: 50px;
+                    .menu {
+                        position: relative;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-around;
+                        align-items: center;
+                        width: 30px;
+                        height: 30px;
+                        cursor: pointer;
+                        .bar {
+                            width: 30px;
+                            height: 3px;
+                            background: #fff;
+                            transition: 0.5s;
+                        }
+                        .bar2 {
+                            &::before {
+                                content: '';
+                                position: absolute;
+                                width: 100%;
+                                height: 3px;
+                                background: transparent;
+                                transform: rotate(0deg);
+                                transition: 0.5s;
+                            }
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                width: 100%;
+                                height: 3px;
+                                background: transparent;
+                                transform: rotate(0deg);
+                                transition: 0.5s;
+                            }
+                        }
+                        &.close {
+                            .bar {
+                                background: transparent;
+                            }
+                            .bar2 {
+                                &::before {
+                                    background: #fff;
+                                    transform: rotate(45deg);
+                                }
+                                &::after {
+                                    content: '';
+                                    background: #fff;
+                                    transform: rotate(-45deg);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes animate {
+    0%, 18%, 20%, 50.1%, 60%, 65.1%, 80%, 90.1%, 92% {
+        color: #0e3742;
+        text-shadow: none;
+    }
+    18.1%, 20.1%, 30%, 50%, 60.1%, 65%, 80.1%, 90%, 92.1%, 100% {
+        color: #fff;
+        text-shadow: 0 0 10px #03bcf4,
+                     0 0 20px #03bcf4,
+                     0 0 40px #03bcf4,
+                     0 0 80px #03bcf4,
+                     0 0 160px #03bcf4;
+    }
+}
