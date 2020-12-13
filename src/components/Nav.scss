@@ -1,5 +1,5 @@
 .nav {
-    position: relative;
+    position: fixed;
     width: 100vw;
     height: 100vh;
     background: #07252d;
@@ -45,6 +45,9 @@
                 height: 100%;
                 padding: 10px;
                 display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
                 .menuArea {
                     position: relative;
                     display: flex;
@@ -105,6 +108,95 @@
                         }
                     }
                 }
+                .profileArea {
+                    position: relative;
+                    width: 50px;
+                    height: 50px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .profile {
+                        position: relative;
+                        width: 45px;
+                        height: 45px;
+                        border-radius: 50%;
+                        background: #fff;
+                        cursor: pointer;
+                        overflow: hidden;
+                        img {
+                            position: relative;
+                            width: 100%;
+                            transform: scale(0.8);
+                        }
+                    }
+                }
+            }
+            .navibar {
+                display: none;
+                position: absolute;
+                left: 70px;
+                width: 200px;
+                height: 100%;
+                padding: 10px;
+                ul {
+                    margin-top: 70px;
+                    li {
+                        padding: 10px 0;
+                        list-style: none;
+                        text-align: center;
+                        height: 50px;
+                        cursor: pointer;
+                        transition: 0.5s;
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            left: 0;
+                            top: 45px;
+                            width: 0px;
+                            height: 3px;
+                            background: #fff;
+                            transition: 1s;
+                        }
+                        &:hover::before {
+                            width: 100%;
+                        }
+                        a {
+                            text-decoration: none;
+                            color: #fff;
+                            font-size: 1em;
+                            line-height: 30px;
+                            font-weight: 700;
+                        }
+                        
+                    }
+                }
+            }
+        }
+        &.navi {
+            width: 270px;
+            .navigation {
+                display: flex;
+                .navibar {
+                    display: block;
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        width: 3px;
+                        height: calc(100% - 20px);
+                        background: #fff;
+                        border-radius: 50%;
+                        transform: translateX(-50%);
+                    }
+                    ul {
+                        li {
+                            opacity: 0;
+                            visibility: hidden;
+                            transform: translateX(100px);
+                            animation: fadeOut 1s ease-in-out forwards;
+                            animation-delay: calc(0.2s * var(--i));
+                        }
+                    }
+                }
             }
         }
     }
@@ -122,5 +214,16 @@
                      0 0 40px #03bcf4,
                      0 0 80px #03bcf4,
                      0 0 160px #03bcf4;
+    }
+}
+@keyframes fadeOut {
+    90% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0px);
     }
 }

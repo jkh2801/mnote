@@ -1,6 +1,6 @@
-import './Home.scss'
+import './Memoirs.scss'
 
-export default function Home () {
+export default function Memoirs() {
     return (
         <div>
             
